@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteItem } from "../../utils/actions/Items";
+import { toast } from "react-toastify";
 const DeleteModal = ({
   isOpenDeleteModal,
   setisOpenDeleteModal,
@@ -11,6 +12,9 @@ const DeleteModal = ({
     e.preventDefault();
     const newItem = { selectedItemID };
     dispatch(deleteItem(newItem));
+    toast.success("Item Deleted");
+    setisOpenDeleteModal(false);
+    window.location.reload();
   };
   const closeModal = () => {
     setisOpenDeleteModal(false);

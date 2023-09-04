@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateItem } from "../../utils/actions/Items";
+import { toast } from "react-toastify";
 const EditModal = ({
   isOpenEditModal,
   setisOpenEditModal,
@@ -12,10 +13,16 @@ const EditModal = ({
   const [description, setDescription] = useState("");
   const handleUpdateItem = (e) => {
     e.preventDefault();
+    if (!name.trim()) {
+      toast.error('Please enter a title.');
+      return;
+    }
     const newItem = { name, description, selectedItemID };
     dispatch(updateItem(newItem));
     setName("");
     setDescription("");
+    setisOpenEditModal(false);
+    toast.success('Item Updated');
   };
   const closeModal = () => {
     setisOpenEditModal(false);

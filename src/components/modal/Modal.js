@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../utils/actions/Items";
+import { toast } from "react-toastify";
+
 const Modal = ({ isOpen, setIsOpen }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -8,10 +10,17 @@ const Modal = ({ isOpen, setIsOpen }) => {
 
   const handleAddItem = (e) => {
     e.preventDefault();
+    if (!name.trim()) {
+      toast.error("Please enter a title.");
+      return;
+    }
+
     const newItem = { name, description };
     dispatch(addItem(newItem));
     setName("");
     setDescription("");
+    setIsOpen(false);
+    toast.success("Item Added");
   };
   const closeModal = () => {
     setIsOpen(false);
@@ -48,6 +57,7 @@ const Modal = ({ isOpen, setIsOpen }) => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       type="text"
+                      required
                     />
                   </div>
                   <div className="flex flex-col">
@@ -58,6 +68,7 @@ const Modal = ({ isOpen, setIsOpen }) => {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       type="text"
+                      required
                     />
                   </div>{" "}
                   {/* Modal Footer */}

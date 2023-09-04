@@ -6,6 +6,7 @@ import {
   completeIcon,
   completeBIcon,
 } from "./assets";
+
 export const cardData = [
   {
     id: 1,

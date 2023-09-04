@@ -17,7 +17,6 @@ const TaskCard = () => {
   }, [dispatch]);
   const items = useSelector((state) => state.items.items);
 
-  console.log("status", items);
   const openEditModal = (name, id) => {
     setisOpenEditModal(true);
     setSelectedItemID(id);
