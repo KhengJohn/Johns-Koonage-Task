@@ -16,7 +16,7 @@ const TaskCard = () => {
     dispatch(fetchItems());
   }, [dispatch]);
   const items = useSelector((state) => state.items.items);
- 
+
   console.log("status", items);
   const openEditModal = (name, id) => {
     setisOpenEditModal(true);
@@ -33,7 +33,7 @@ const TaskCard = () => {
     <div>
       {!items ? (
         <p>LOADING...</p>
-      ) :  (
+      ) : (
         <>
           {items.map((item) => (
             <div
@@ -83,7 +83,7 @@ const TaskCard = () => {
             </div>
           ))}
         </>
-      ) }
+      )}
       <EditModal
         isOpenEditModal={isOpenEditModal}
         setisOpenEditModal={setisOpenEditModal}
