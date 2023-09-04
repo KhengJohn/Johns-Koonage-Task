@@ -1,7 +1,9 @@
 import axios from "axios";
-
+const baseURL = "https://taskendpoint.netlify.app"
+const baseURLII = "http://localhost:3001"
+const endPoint = "/items"
 export const fetchItems = () => async (dispatch) => {
-  const response = await axios.get(`http://localhost:3001/items`); // Replace with your API endpoint
+  const response = await axios.get(`${baseURLII}${endPoint}`); // Replace with your API endpoint
   dispatch({ type: "FETCH_ITEMS", payload: response.data });
 };
 

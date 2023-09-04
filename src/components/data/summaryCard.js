@@ -8,6 +8,7 @@ import {
 } from "./assets";
 export const cardData = [
   {
+    id: 1,
     icon: calendarIcon,
     iconii: calendarBIcon,
     color: "#FF7CA4",
@@ -17,6 +18,7 @@ export const cardData = [
   },
 
   {
+    id: 2,
     icon: timerIcon,
     iconii: timerBIcon,
     color: "#FFC23D",
@@ -25,6 +27,7 @@ export const cardData = [
     number: "27",
   },
   {
+    id: 3,
     icon: completeIcon,
     iconii: completeBIcon,
     color: "#15B569",
